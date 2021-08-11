@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:14:02 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/11 19:00:31 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/11 19:35:28 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 {
 	if (error(argc, argv))
 		return (EXIT_FAILURE);
+	parse_arguments(argc, argv);
 	print_time();
 	return (0);
 }

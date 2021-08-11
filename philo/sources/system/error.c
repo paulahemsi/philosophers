@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 17:41:37 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/11 19:34:18 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/11 20:03:18 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static bool	error_msg(char *message)
 {
-	printf("%s\n", message);
+	printf("%s%s%s\n", BOLD_RED, message, RESET_COLOR);
 	return (true);
 }
 

@@ -43,4 +43,5 @@ name  | prototype | description |
 <details>
   <summary>Click to expand </summary>
   
-  * 08/08: 
+  * 08/08, 09/08, 10/08: Thread studies
+  * 11/08: Error handler and arguments parser
