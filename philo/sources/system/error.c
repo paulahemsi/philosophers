@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 17:41:37 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/11 18:32:00 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/11 18:50:09 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,43 +18,36 @@ static bool	error_msg(char *message)
 	return (true);
 }
 
-static bool	is_unsigned_integer(char **argv, int i)
+static bool	only_digits(char **argv, int i, int j)
 {
-	int		j;
-	double	number;
-
-	j = 0;
-	while (argv[i][j])
-	{
+	while (argv[i][++j])
 		if (!(ft_isdigit(argv[i][j])))
 			return (false);
-		j++;
-	}
-	number = philo_atoi(argv[i]);
-	if (number > INT_MAX)
+	return (true);
+}
+
+static bool	is_unsigned_integer(char **argv, int i)
+{
+	if (!only_digits(argv, i, -1))
+		return (false);
+	if (philo_atoi(argv[i]) > INT_MAX)
 		return (false);
 	return (true);
 }
 
-static bool	only_unsigned_integers(int argc, char **argv)
+static bool	only_unsigned_integers(int argc, char **argv, int i)
 {
-	int	i;
-
-	i = 1;
-	while (i < argc)
-	{
+	while (++i < argc)
 		if (!is_unsigned_integer(argv, i))
 			return (false);
-		i++;
-	}
 	return (true);
 }
 
 bool	error(int argc, char **argv)
 {
-	if (argc < 5 || argc > 6)
+	if (argc < ARGS_MIN || argc > ARGS_MAX)
 		return (error_msg(USAGE));
-	if (!only_unsigned_integers(argc, argv))
+	if (!only_unsigned_integers(argc, argv, 0))
 		return (error_msg(NOT_INT));
 	return (false);
 }
