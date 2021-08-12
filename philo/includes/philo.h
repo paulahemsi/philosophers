@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:37:53 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/11 20:11:55 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/11 23:04:09 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,11 @@ typedef struct s_philo
 	int		must_eat;
 }	t_philo;
 
+#include "simulation.h"
 /*
 ** parser.c
 */
-void	parse_arguments(int argc, char **argv);
+void	parse_arguments(int argc, char **argv, t_philo *philo);
 
 /*
 ** utils/

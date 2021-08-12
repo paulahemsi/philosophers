@@ -6,7 +6,7 @@
 #    By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 08:29:57 by phemsi-a          #+#    #+#              #
-#    Updated: 2021/08/11 18:18:05 by phemsi-a         ###   ########.fr        #
+#    Updated: 2021/08/11 21:57:40 by phemsi-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ DIR_SRCS = sources
 
 DIR_OBJS = objects
 
-DIRS = system utils
+DIRS = system utils simulation
 
 SRC = $(wildcard $(DIR_SRCS)/*.c)
 
@@ -51,6 +51,7 @@ $(DIR_OBJS)/%.o: $(DIR_SRCS)/%.c
 		@mkdir -p objects
 		@mkdir -p objects/system
 		@mkdir -p objects/utils
+		@mkdir -p objects/simulation
 		@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 		@echo "Compiled "$<" successfully!"
 
