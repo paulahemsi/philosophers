@@ -6,17 +6,11 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 17:41:37 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/11 20:03:18 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/11 21:01:56 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-static bool	error_msg(char *message)
-{
-	printf("%s%s%s\n", BOLD_RED, message, RESET_COLOR);
-	return (true);
-}
 
 static bool	only_digits(char **argv, int i, int j)
 {
@@ -26,11 +20,18 @@ static bool	only_digits(char **argv, int i, int j)
 	return (true);
 }
 
+static bool	is_out_of_range(int number)
+{
+	if (number > INT_MAX || number == 0)
+		return (true);
+	return (false);
+}
+
 static bool	is_unsigned_integer(char **argv, int i)
 {
 	if (!only_digits(argv, i, -1))
 		return (false);
-	if (philo_atoi(argv[i]) > INT_MAX)
+	if (is_out_of_range(philo_atoi(argv[i])))
 		return (false);
 	return (true);
 }
