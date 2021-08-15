@@ -22,8 +22,7 @@ ______________
 
 ## philos_and_forks_map
 
-![philos forks](https://user-images.githubusercontent.com/63563271/129487272-adfb6d27-f57d-4e85-8042-8bc09b9b086b.png)
-
+![philos forks](https://user-images.githubusercontent.com/63563271/129487495-9c1db852-1e3c-4276-ad8e-9fe4e233e7a5.png)
 
 ## new_functions_allowed
 
