@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 08:27:09 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 17:58:02 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/15 20:06:57 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_mutex
 typedef struct s_philo
 {
 	int				index;
+	long long int	last_meal;
 	t_time			time[1];
 	int				hand[2];
 	bool			*death;

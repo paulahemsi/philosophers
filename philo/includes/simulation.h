@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:59:17 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 18:01:21 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/15 20:12:09 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ void	take_forks(t_philo *philo);
 void	eat(t_philo *philo);
 void	sleeping(t_philo *philo);
 void	think(t_philo *philo);
+void	print_status(long long int time, int philo_number, pthread_mutex_t *text, char *status, char *color);
 
 # endif

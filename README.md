@@ -51,3 +51,5 @@ name  | prototype | description |
   
   * 08/08, 09/08, 10/08: Thread studies
   * 11/08: Error handler and arguments parser
+  * 12/08, 13/08, 14/08: Getting confused while implementing the threads flow
+  * 15/08: Finished threads implementation and, as was sunday, played a little bit adding output colors :)
