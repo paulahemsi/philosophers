@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 09:05:16 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 10:18:32 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/15 13:40:14 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ void	*routine(void *philo_ptr)
 	int i = 0;
 
 	philo = (t_philo *)philo_ptr;
-	while(i < 10)
+	while(i < 1000)
 	{
+		printf("START TIME: %lld\n", philo->time->start);
 		take_forks(philo->time->start, philo->fork, philo->index);
 		eat(philo->time->start, philo->time->to_eat, philo->fork, philo->index);
 		sleeping(philo->time->start, philo->time->to_sleep, philo->index);

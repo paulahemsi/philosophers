@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:58:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 10:07:42 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/15 13:21:47 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	init_simulation(t_dinner *dinner)
 {
 	init_mutexes(dinner, &dinner->mutex, dinner->total, 0);
 	dinner->time->start = get_current_time();
+	printf("START AT: %lld\n", dinner->time->start);
 	init_philosophers(dinner->philo, dinner, dinner->total, 0);
 	start_simulation(dinner, 0);
 }

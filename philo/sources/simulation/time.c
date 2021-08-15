@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 13:51:24 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/14 08:55:00 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/15 13:42:12 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ long long int	get_current_time(void)
 
 long long int	get_elapsed_time(long long int start_time)
 {
+	printf("ELAPSED %lld\n", get_current_time() - start_time);
 	return ((get_current_time() - start_time));
 }
 
