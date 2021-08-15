@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/11 08:14:02 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/14 21:53:45 by phemsi-a         ###   ########.fr       */
+/*   Created: 2021/08/13 13:51:24 by phemsi-a          #+#    #+#             */
+/*   Updated: 2021/08/14 08:55:00 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+long long int	get_current_time(void)
 {
-	t_dinner	dinner;
+	struct timeval current_time;
 
-	if (error(argc, argv))
-		return (EXIT_FAILURE);
-	ft_memset(&dinner, 0, sizeof(t_dinner));
-	parse_arguments(argc, argv, &dinner);
-	init_simulation(&dinner);
-	//end_mutex
-	return (0);
+	gettimeofday(&current_time, NULL);
+	return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000);
+}
+
+long long int	get_elapsed_time(long long int start_time)
+{
+	return ((get_current_time() - start_time));
+}
+
+int	do_action(long long int time_in_ms)
+{
+	return (usleep(time_in_ms * 1000));
 }
