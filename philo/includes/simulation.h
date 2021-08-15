@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:59:17 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 10:07:05 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/15 18:01:21 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int				do_action(long long int time_in_ms);
 /*
 ** actions.c
 */
-void	take_forks(long long int start_time, pthread_mutex_t *fork, int index);
-void	eat(long long int start_time, long long int duration, pthread_mutex_t *fork, int index);
-void	sleeping(long long int start_time, long long int duration, int index);
-void	think(long long int start_time, int index);
+void	take_forks(t_philo *philo);
+void	eat(t_philo *philo);
+void	sleeping(t_philo *philo);
+void	think(t_philo *philo);
 
 # endif

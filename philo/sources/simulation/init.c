@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:58:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 13:21:47 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/15 18:11:08 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,13 @@ static void	init_philosophers(t_philo *philo, t_dinner *dinner, int total, int i
 	{
 		philo[i].index = i;
 		philo[i].time[0] = *dinner->time;
-		philo[i].fork[0] = dinner->fork[i];
-		philo[i].fork[1] = dinner->fork[i + 1];
+		philo[i].hand[0] = i;
+		philo[i].hand[1] = i + 1;
+		if (i == total)
+			philo[i].hand[1] = 1;
+		philo[i].forks = dinner->fork;
+		philo[i].death = &dinner->death;
+		philo[i].mutex = &dinner->mutex;
 	}
 }
 
