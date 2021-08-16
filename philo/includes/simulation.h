@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:59:17 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 20:12:09 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/15 21:19:45 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	start_simulation(t_dinner *dinner, int i);
 long long int	get_current_time(void);
 long long int	get_elapsed_time(long long int start_time);
 int				do_action(long long int time_in_ms);
+void			delay(int delay_time);
 /*
 ** actions.c
 */

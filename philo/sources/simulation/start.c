@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 09:05:16 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 20:30:23 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/15 21:20:56 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	*routine(void *philo_ptr)
 	t_philo *philo;
 
 	philo = (t_philo *)philo_ptr;
+	if (philo->index % 2 == 0)
+		delay(philo->time->to_eat / 10);
 	while(true && !(*philo->death))
 	{
 		take_forks(philo);
