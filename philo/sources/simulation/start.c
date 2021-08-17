@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 09:05:16 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 21:32:50 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/16 21:25:42 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	check_death(t_philo *philo)
 {
+	if (philo->last_meal == 0)
+		return ;
 	if ((get_current_time() - philo->last_meal) > philo->time->to_die)
 	{
 		*philo->death = true;
@@ -38,10 +40,10 @@ void	*routine(void *philo_ptr)
 	while(true && !(*philo->death))
 	{
 		take_forks(philo);
+		check_death(philo);
 		eat(philo);
 		sleeping(philo);
 		think(philo);
-		check_death(philo);
 	}
 	return (philo_ptr);
 }
