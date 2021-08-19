@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:58:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 20:36:08 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/18 19:56:48 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	init_mutexes(t_dinner *dinner, t_mutex *mutex, int total, int i)
 	while(i++ <= total)
 		pthread_mutex_init(&dinner->fork[i], NULL);
 	pthread_mutex_init(&mutex->text, NULL);
+	pthread_mutex_init(&mutex->death, NULL);
 }
 
 void	init_simulation(t_dinner *dinner)

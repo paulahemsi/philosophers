@@ -6,34 +6,37 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 09:43:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 21:08:58 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/18 19:55:31 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	print_status(long long int time, int philo_number, pthread_mutex_t *text, char *status, char *color)
+void	print_status(long long time, t_philo *philo, char *status, char *color)
 {
-	pthread_mutex_lock(text);
-	printf("%s%-10lld %-3d %-20s%s\n", color, time, philo_number, status, RESET_COLOR);
-	pthread_mutex_unlock(text);
+	int	index;
+
+	index = philo->index;
+	pthread_mutex_lock(&philo->mutex->text);
+	printf("%s%-10lld %-3d %-20s%s\n", color, time, index, status, RESET);
+	pthread_mutex_unlock(&philo->mutex->text);
 }
 
 void	sleeping(t_philo *philo)
 {
 	if (*philo->death)
 		return ;
-	print_status(get_elapsed_time(philo->time->start), philo->index, &philo->mutex->text, SLEEPING, GREEN);
-	do_action(philo->time->to_sleep);
+	print_status(get_elapsed_time(philo->time->start), philo, SLEEP, GREEN);
+	do_action(philo->time->to_sleep, philo);
 }
 
 void	eat(t_philo *philo)
 {
 	if (*philo->death)
 		return ;
-	philo->last_meal = get_current_time();
-	print_status(get_elapsed_time(philo->time->start), philo->index, &philo->mutex->text, EATING, V_GREEN);
-	do_action(philo->time->to_eat);
+	philo->last_meal = get_elapsed_time(philo->time->start);
+	print_status(get_elapsed_time(philo->time->start), philo, EAT, V_GREEN);
+	do_action(philo->time->to_eat, philo);
 	pthread_mutex_unlock(&philo->forks[philo->hand[LEFT]]);
 	pthread_mutex_unlock(&philo->forks[philo->hand[RIGHT]]);
 }
@@ -42,7 +45,7 @@ void	think(t_philo *philo)
 {
 	if (*philo->death)
 		return ;
-	print_status(get_elapsed_time(philo->time->start), philo->index, &philo->mutex->text, THINKING, P_GREEN);
+	print_status(get_elapsed_time(philo->time->start), philo, THINK, P_GREEN);
 }
 
 void	take_forks(t_philo *philo)
@@ -50,7 +53,7 @@ void	take_forks(t_philo *philo)
 	if (*philo->death)
 		return ;
 	pthread_mutex_lock(&philo->forks[philo->hand[LEFT]]);
-	print_status(get_elapsed_time(philo->time->start), philo->index, &philo->mutex->text, FORK, D_GREEN);
+	print_status(get_elapsed_time(philo->time->start), philo, FORK, D_GREEN);
 	pthread_mutex_lock(&philo->forks[philo->hand[RIGHT]]);
-	print_status(get_elapsed_time(philo->time->start), philo->index, &philo->mutex->text, FORK, D_GREEN);
+	print_status(get_elapsed_time(philo->time->start), philo, FORK, D_GREEN);
 }
