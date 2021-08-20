@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 08:27:09 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/18 19:14:10 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/19 21:40:58 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ typedef struct s_philo
 {
 	int				index;
 	long long int	last_meal;
-	long long int	time_of_death;
-	t_time			time[1];
+	t_time			time;
 	int				hand[2];
+	long long int	*time_of_death;
 	int				*death;
 	pthread_mutex_t	*forks;
 	t_mutex			*mutex;
@@ -45,10 +45,10 @@ typedef struct s_dinner
 {
 	int				total;
 	int				must_eat;
-	int				death;
 	long long int	time_of_death;
+	int				death;
 	t_mutex			mutex;
-	t_time			time[1];
+	t_time			time;
 	t_philo			philo[201];
 	pthread_mutex_t	fork[201];
 }	t_dinner;

@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 19:36:00 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/18 19:36:22 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/19 21:42:19 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ static int	*define_variable(int id, t_dinner *dinner)
 	if (id == 1)
 		return (&dinner->total);
 	if (id == 2)
-		return (&dinner->time->to_die);
+		return (&dinner->time.to_die);
 	if (id == 3)
-		return (&dinner->time->to_eat);
+		return (&dinner->time.to_eat);
 	if (id == 4)
-		return (&dinner->time->to_sleep);
+		return (&dinner->time.to_sleep);
 	else
 		return (&dinner->must_eat);
 }
@@ -32,7 +32,7 @@ static void	assign_value(int id, int value, t_dinner *dinner)
 
 	variable = define_variable(id, dinner);
 	*variable = value;
-	printf("time to die %d\n", dinner->time->to_die);
+	printf("time to die %d\n", dinner->time.to_die);
 
 }
 
