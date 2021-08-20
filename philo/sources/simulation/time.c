@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 13:51:24 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/19 22:56:49 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:50:22 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	do_action(long long int time_in_ms, t_philo *philo, char *action)
 	action_time = time_in_ms * 1000;
 	now = get_elapsed_time(philo->time.start);
 	printf("%d passou por aqui %s\n", philo->index, action);
-	while ((get_elapsed_time(philo->time.start) - now) < (action_time / 1000) && (!is_death(philo, action)))
+	while ((get_elapsed_time(philo->time.start) - now) < (action_time / 1000) && (!is_death(philo)))
 		usleep(5);
 }
 

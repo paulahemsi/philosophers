@@ -6,13 +6,13 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 09:05:16 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/19 23:22:50 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:48:58 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool	is_death(t_philo *philo, char *action)
+bool	is_death(t_philo *philo)
 {
 	long long int	now;
 
@@ -21,20 +21,13 @@ bool	is_death(t_philo *philo, char *action)
 	if (philo->last_meal == 0)
 		return (false);
 	now = get_elapsed_time(philo->time.start);
-	printf("SOY %d! %s now %lld last meal %lld diff %lld time_to_die %i\n", philo->index, action, now, philo->last_meal, (now - philo->last_meal), philo->time.to_die);
 	if ((now - philo->last_meal) > philo->time.to_die)
 	{
 		printf("MORRI! Ass.%d\n", philo->index);
-		//printf("now %lld last meal %lld diff %lld time_to_die %i\n", now, philo->last_meal, (now - philo->last_meal), philo->time->to_die);
 		pthread_mutex_lock(&philo->mutex->death);
 		*philo->death = philo->index;
 		*philo->time_of_death = now;
-		//printf("TIME OF DEATH DENTRO DO IS DEATH: %lld\n", now);
 		pthread_mutex_unlock(&philo->mutex->death);
-		//!soltar garfos! Usar outro tipo de mutex? 
-		//print_status(get_elapsed_time(philo->time->start), philo->index, &philo->mutex->text, DIED, H_RED);
-		//!pthread_mutex_unlock(&philo->forks[philo->hand[LEFT]]);
-		//!pthread_mutex_unlock(&philo->forks[philo->hand[RIGHT]]);
 		return (true);
 	}
 	return (false);

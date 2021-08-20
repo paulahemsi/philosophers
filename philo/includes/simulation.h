@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:59:17 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/19 22:54:41 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:49:08 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 void	init_simulation(t_dinner *dinner);
 void	start_simulation(t_dinner *dinner, int i);
-bool	is_death(t_philo *philo, char *action);
+bool	is_death(t_philo *philo);
 bool	anyone_dead(t_philo *philo);
 /*
 ** time.c
