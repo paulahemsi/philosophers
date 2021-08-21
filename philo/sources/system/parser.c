@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 19:36:00 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/19 21:42:19 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 16:14:43 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	*define_variable(int id, t_dinner *dinner)
 	if (id == 4)
 		return (&dinner->time.to_sleep);
 	else
-		return (&dinner->must_eat);
+		return (&dinner->time.must_eat);
 }
 
 static void	assign_value(int id, int value, t_dinner *dinner)

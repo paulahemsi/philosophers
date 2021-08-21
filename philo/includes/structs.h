@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 08:27:09 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 16:07:23 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 16:14:20 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 typedef struct s_time
 {
+	long long int	start;
 	int				to_eat;
 	int				to_sleep;
 	int				to_die;
-	int				has_eaten;
-	long long int	start;
+	int				must_eat;
 }	t_time;
 
 typedef struct s_mutex
@@ -33,9 +33,9 @@ typedef struct s_mutex
 typedef struct s_dinner
 {
 	int				total;
-	int				must_eat;
-	long long int	time_of_death;
 	int				death;
+	int				satisfied_philos;
+	long long int	time_of_death;
 	t_mutex			mutex;
 	t_time			time;
 }	t_dinner;
@@ -44,6 +44,7 @@ typedef struct s_philo
 {
 	int				index;
 	long long int	last_meal;
+	int				eaten_times;
 	int				hand[2];
 	t_dinner		*dinner;
 }	t_philo;
