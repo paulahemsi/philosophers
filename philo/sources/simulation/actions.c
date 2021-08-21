@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 09:43:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 16:05:32 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 16:08:27 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ bool	eat(t_philo *philo)
 	philo->last_meal = get_elapsed_time(philo->dinner->time.start);
 	do_action(philo->dinner->time.to_eat, philo, "COMENDO");
 	philo->dinner->time.has_eaten++;
-	pthread_mutex_unlock(&philo->dinner->fork[philo->hand[LEFT]]);
-	pthread_mutex_unlock(&philo->dinner->fork[philo->hand[RIGHT]]);
+	pthread_mutex_unlock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
+	pthread_mutex_unlock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
 	return (true);
 }
 
@@ -68,10 +68,10 @@ bool	think(t_philo *philo)
 
 bool	take_forks(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->dinner->fork[philo->hand[LEFT]]);
+	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
 	if (!print_status(get_elapsed_time(philo->dinner->time.start), philo, FORK, D_GREEN))
 		return (false);
-	pthread_mutex_lock(&philo->dinner->fork[philo->hand[RIGHT]]);
+	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
 	if (!print_status(get_elapsed_time(philo->dinner->time.start), philo, FORK, D_GREEN))
 		return (false);
 	return (true);

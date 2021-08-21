@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 08:27:09 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 16:00:17 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 16:07:23 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_mutex
 	pthread_mutex_t	end;
 	pthread_mutex_t	eaten;
 	pthread_mutex_t	death;
+	pthread_mutex_t	fork[201];
 }	t_mutex;
 
 typedef struct s_dinner
@@ -37,7 +38,6 @@ typedef struct s_dinner
 	int				death;
 	t_mutex			mutex;
 	t_time			time;
-	pthread_mutex_t	fork[201];
 }	t_dinner;
 
 typedef struct s_philo
