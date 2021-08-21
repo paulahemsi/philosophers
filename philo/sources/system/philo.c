@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:14:02 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 16:27:16 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 16:55:27 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ int	main(int argc, char **argv)
 	parse_arguments(argc, argv, &dinner);
 	if (init_simulation_fail(&dinner))
 		return (EXIT_FAILURE);
-	//TODO caso em que comem o número especificado (printar que comeram x vezes?)
-	printf("TIME OF DEATH %lld\n", dinner.time_of_death);
+	//TODO caso em que comem o número especificado printar que comeram x vezes?
 	print_death(dinner.time_of_death, dinner.death, &dinner.mutex.text);
 	destroy_mutexes(&dinner.mutex, dinner.total, 0);
 	return (0);

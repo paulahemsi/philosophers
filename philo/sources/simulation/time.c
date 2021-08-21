@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 13:51:24 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 16:09:41 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 17:18:50 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ long long int	get_elapsed_time(long long int start_time)
 	return ((get_current_time() - start_time));
 }
 
-void	do_action(long long int time_in_ms, t_philo *philo, char *action)
+void	do_action(long long int time_in_ms, t_philo *philo)
 {
 	long int	now;
 	long int	action_time;
 
 	action_time = time_in_ms * 1000;
 	now = get_elapsed_time(philo->dinner->time.start);
-	printf("%d passou por aqui %s\n", philo->index, action);
 	while ((get_elapsed_time(philo->dinner->time.start) - now) < (action_time / 1000) && (!is_death(philo)))
 		usleep(5);
 }

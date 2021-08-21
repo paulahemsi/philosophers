@@ -6,29 +6,17 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 09:43:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 16:13:21 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 18:37:36 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool	anyone_dead(t_philo *philo)
-{
-	pthread_mutex_lock(&philo->dinner->mutex.death);
-	if (philo->dinner->death)
-	{
-		pthread_mutex_unlock(&philo->dinner->mutex.death);
-		return (true);
-	}
-	pthread_mutex_unlock(&philo->dinner->mutex.death);
-	return (false);
-}
-
 bool	print_status(long long time, t_philo *philo, char *status, char *color)
 {
 	int	index;
 
-	if (anyone_dead(philo) || is_death(philo))
+	if (anyone_dead(philo))
 		return (false);
 	index = philo->index;
 	pthread_mutex_lock(&philo->dinner->mutex.text);
@@ -41,7 +29,18 @@ bool	sleeping(t_philo *philo)
 {
 	if (!print_status(get_elapsed_time(philo->dinner->time.start), philo, SLEEP, GREEN))
 		return (false);
-	do_action(philo->dinner->time.to_sleep, philo, "DORMINDO");
+	do_action(philo->dinner->time.to_sleep, philo);
+	return (true);
+}
+
+static bool	take_forks(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
+	if (!print_status(get_elapsed_time(philo->dinner->time.start), philo, FORK, D_GREEN))
+		return (false);
+	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
+	if (!print_status(get_elapsed_time(philo->dinner->time.start), philo, FORK, D_GREEN))
+		return (false);
 	return (true);
 }
 
@@ -49,10 +48,10 @@ bool	eat(t_philo *philo)
 {
 	if (!take_forks(philo))
 		return (false);
+	philo->last_meal = get_elapsed_time(philo->dinner->time.start);
 	if (!print_status(get_elapsed_time(philo->dinner->time.start), philo, EAT, V_GREEN))
 		return (false);
-	philo->last_meal = get_elapsed_time(philo->dinner->time.start);
-	do_action(philo->dinner->time.to_eat, philo, "COMENDO");
+	do_action(philo->dinner->time.to_eat, philo);
 	philo->eaten_times++;
 	pthread_mutex_unlock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
 	pthread_mutex_unlock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
@@ -62,17 +61,6 @@ bool	eat(t_philo *philo)
 bool	think(t_philo *philo)
 {
 	if (!print_status(get_elapsed_time(philo->dinner->time.start), philo, THINK, P_GREEN))
-		return (false);
-	return (true);
-}
-
-bool	take_forks(t_philo *philo)
-{
-	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
-	if (!print_status(get_elapsed_time(philo->dinner->time.start), philo, FORK, D_GREEN))
-		return (false);
-	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
-	if (!print_status(get_elapsed_time(philo->dinner->time.start), philo, FORK, D_GREEN))
 		return (false);
 	return (true);
 }

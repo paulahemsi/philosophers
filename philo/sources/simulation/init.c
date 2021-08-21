@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:58:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 16:49:46 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 18:26:18 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ bool	init_simulation_fail(t_dinner *dinner)
 
 	init_philosophers(philo, dinner, dinner->total, 0);
 	init_mutexes(&dinner->mutex, dinner->total, 0);
-	dinner->time.start = get_current_time();
 	if (start_simulation_failed(dinner, philo, 0))
 		return (true);
 	return (false);

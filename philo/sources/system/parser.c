@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 19:36:00 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 16:14:43 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 17:20:44 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ static void	assign_value(int id, int value, t_dinner *dinner)
 
 	variable = define_variable(id, dinner);
 	*variable = value;
-	printf("time to die %d\n", dinner->time.to_die);
-
 }
 
 void	parse_arguments(int argc, char **argv, t_dinner *dinner)
