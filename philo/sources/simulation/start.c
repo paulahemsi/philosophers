@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 09:05:16 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 16:01:18 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 16:22:03 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ bool	start_simulation_failed(t_dinner *dinner, t_philo *philo, int i)//?mudar re
 
 	while (++i <= dinner->total)
 		if (pthread_create(&philosopher[i - 1], NULL, &routine, &philo[i]) != 0)
+			return (error_msg(THREAD_ERROR));
+	while (!dinner->death)
+		continue ;
+	i = 0;
+	while (++i <= dinner->total)
+		if (pthread_join(philosopher[i - 1], NULL) != 0)
 			return (error_msg(THREAD_ERROR));
 	return (false);
 }
