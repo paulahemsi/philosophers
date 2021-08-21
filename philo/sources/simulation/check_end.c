@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 18:34:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 18:39:45 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 19:39:29 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 bool	anyone_dead(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->dinner->mutex.death);
-	if (philo->dinner->death)
+	if (philo->dinner->end)
 	{
 		pthread_mutex_unlock(&philo->dinner->mutex.death);
 		return (true);
@@ -36,7 +36,7 @@ bool	is_death(t_philo *philo)
 	if ((now - philo->last_meal) > philo->dinner->time.to_die)
 	{
 		pthread_mutex_lock(&philo->dinner->mutex.death);
-		philo->dinner->death = philo->index;
+		philo->dinner->end = philo->index;
 		philo->dinner->time_of_death = now;
 		pthread_mutex_unlock(&philo->dinner->mutex.death);
 		return (true);

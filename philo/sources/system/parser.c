@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 19:36:00 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 17:20:44 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 19:52:59 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	parse_arguments(int argc, char **argv, t_dinner *dinner)
 	int		i;
 
 	i = 0;
+	ft_memset(dinner, 0, sizeof(t_dinner));
 	while (++i < argc)
 		assign_value(i, (int)philo_atoi(argv[i]), dinner);
 }

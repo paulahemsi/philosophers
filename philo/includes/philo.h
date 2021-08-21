@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:37:53 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 10:04:35 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:09:50 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,20 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
-#include "error.h"
 #include "colors.h"
 #include "structs.h"
-#include "simulation.h"
+#include "error.h"
+#include "actions.h"
+#include "end.h"
+#include "time.h"
 
+
+bool	init_simulation_fail(t_dinner *dinner);
+bool	start_simulation_failed(t_dinner *dinner, t_philo *philo, int i);
 /*
 ** parser.c
 */
 void	parse_arguments(int argc, char **argv, t_dinner *dinner);
-
 /*
 ** utils/
 */

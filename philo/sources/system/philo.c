@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:14:02 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 16:55:27 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 19:52:47 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,24 @@ static void	destroy_mutexes(t_mutex *mutex, int total, int i)
 	pthread_mutex_init(&mutex->eaten, NULL);
 }
 
+static void	print_end_message(t_dinner	*dinner)
+{
+	if (dinner->time_of_death)
+		print_death(dinner->time_of_death, dinner->end, &dinner->mutex.text);
+	else
+		printf("%s%s %-3d %-20s%s\n", H_YELLOW, END_1, dinner->time.must_eat, END_2, RESET);
+}
+
 int	main(int argc, char **argv)
 {
 	t_dinner	dinner;
 
 	if (error(argc, argv))
 		return (EXIT_FAILURE);
-	ft_memset(&dinner, 0, sizeof(t_dinner));
 	parse_arguments(argc, argv, &dinner);
 	if (init_simulation_fail(&dinner))
 		return (EXIT_FAILURE);
-	//TODO caso em que comem o número especificado printar que comeram x vezes?
-	print_death(dinner.time_of_death, dinner.death, &dinner.mutex.text);
+	print_end_message(&dinner);
 	destroy_mutexes(&dinner.mutex, dinner.total, 0);
 	return (0);
 }

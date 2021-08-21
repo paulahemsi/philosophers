@@ -6,11 +6,19 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:58:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 18:26:18 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 19:48:40 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	define_forks(t_philo *philo, int index, int last_philo)
+{
+	philo[index].hand[LEFT] = index;
+	philo[index].hand[RIGHT] = index + 1;
+	if (index == last_philo)
+		philo[index].hand[RIGHT] = 1;
+}
 
 static void	init_philosophers(t_philo *philo, t_dinner *dinner, int total, int i)
 {
@@ -18,10 +26,7 @@ static void	init_philosophers(t_philo *philo, t_dinner *dinner, int total, int i
 	{
 		ft_memset(&philo[i], 0, sizeof(t_philo));
 		philo[i].index = i;
-		philo[i].hand[0] = i;
-		philo[i].hand[1] = i + 1;
-		if (i == total)
-			philo[i].hand[1] = 1;
+		define_forks(philo, i, total);
 		philo[i].dinner = dinner;
 	}
 }
