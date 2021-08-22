@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 18:34:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 23:26:44 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 00:01:46 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool	anyone_dead(t_philo *philo)
 	return (false);
 }
 
-bool	is_death(t_philo *philo)
+static bool	ended(t_philo *philo)
 {
 	long long int	now;
 
@@ -47,7 +47,7 @@ void	*verify_end_conditions(void *philo_ptr)
 	t_philo		*philo;
 
 	philo = (t_philo *)philo_ptr;
-	while (!is_death(philo))
+	while (!ended(philo))
 		continue ;
 	return (NULL);
 }
