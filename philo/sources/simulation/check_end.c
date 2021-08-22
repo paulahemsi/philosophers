@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 18:34:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 19:39:29 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 22:38:25 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 bool	anyone_dead(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->dinner->mutex.death);
+	//pthread_mutex_lock(&philo->dinner->mutex.death);
 	if (philo->dinner->end)
 	{
-		pthread_mutex_unlock(&philo->dinner->mutex.death);
+	//	pthread_mutex_unlock(&philo->dinner->mutex.death);
 		return (true);
 	}
-	pthread_mutex_unlock(&philo->dinner->mutex.death);
+	//pthread_mutex_unlock(&philo->dinner->mutex.death);
 	return (false);
 }
 

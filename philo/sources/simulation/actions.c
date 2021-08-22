@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 09:43:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 21:22:16 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 21:25:11 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,6 @@ static void	take_forks(t_philo *philo)
 	print_status(get_elapsed_time(start), philo, FORK, D_GREEN);
 	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
 	print_status(get_elapsed_time(start), philo, FORK, D_GREEN);
-
-	// long long int	start;
-
-	// start = philo->dinner->time.start;
-	// pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
-	// if (!print_status(get_elapsed_time(start), philo, FORK, D_GREEN))
-	// 	return (false);
-	// pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
-	// if (!print_status(get_elapsed_time(start), philo, FORK, D_GREEN))
-	// 	return (false);
-	// return (true);
 }
 
 bool	eat(t_philo *philo)
@@ -64,8 +53,6 @@ bool	eat(t_philo *philo)
 
 	start = philo->dinner->time.start;
 	take_forks(philo);
-	// if (!take_forks(philo))
-	// 	return (false);
 	philo->last_meal = get_elapsed_time(start);
 	if (!print_status(get_elapsed_time(start), philo, EAT, V_GREEN))
 		return (false);

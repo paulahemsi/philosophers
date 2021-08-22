@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:58:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 20:33:34 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 22:33:22 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,26 @@ static void	init_mutexes(t_mutex *mutex, int total, int i)
 	pthread_mutex_init(&mutex->eaten, NULL);
 }
 
+bool	only_one_philo(t_dinner *dinner)
+{
+	if (dinner->total == 1)
+	{
+		printf("%s%-10d %-3d %-20s%s\n", D_GREEN, 0, 1, FORK, RESET);
+		dinner->time_of_death = dinner->time.to_die + 1;
+		dinner->end = 1;
+		return (true);
+	}
+	return (false);
+}
+
 bool	init_simulation(t_dinner *dinner)
 {
 	t_philo		philo[201];
 
 	init_philosophers(philo, dinner, dinner->total, 0);
 	init_mutexes(&dinner->mutex, dinner->total, 0);
+	if (only_one_philo(dinner))
+		return (true);
 	if (!start_simulation(dinner, philo))
 		return (false);
 	return (true);
