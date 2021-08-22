@@ -6,14 +6,14 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 17:29:05 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 18:16:00 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 20:30:58 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERROR_H
 # define ERROR_H
 
-#include "philo.h"
+# include "philo.h"
 
 # define ARGS_MIN	5
 # define ARGS_MAX	6

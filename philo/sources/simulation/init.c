@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:58:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 19:55:36 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 20:35:05 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	define_forks(t_philo *philo, int index, int last_philo)
 		philo[index].hand[RIGHT] = 1;
 }
 
-static void	init_philosophers(t_philo *philo, t_dinner *dinner, int total, int i)
+static void	init_philos(t_philo *philo, t_dinner *dinner, int total, int i)
 {
 	while (++i <= total)
 	{
@@ -33,7 +33,7 @@ static void	init_philosophers(t_philo *philo, t_dinner *dinner, int total, int i
 
 static void	init_mutexes(t_mutex *mutex, int total, int i)
 {
-	while(i++ <= total)
+	while (i++ <= total)
 		pthread_mutex_init(&mutex->fork[i], NULL);
 	pthread_mutex_init(&mutex->text, NULL);
 	pthread_mutex_init(&mutex->death, NULL);
@@ -56,7 +56,7 @@ bool	init_simulation(t_dinner *dinner)
 {
 	t_philo		philo[202];
 
-	init_philosophers(philo, dinner, dinner->total, 0);
+	init_philos(philo, dinner, dinner->total, 0);
 	init_mutexes(&dinner->mutex, dinner->total, 0);
 	if (only_one_philo(dinner))
 		return (true);

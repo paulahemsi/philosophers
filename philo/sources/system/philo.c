@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:14:02 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 19:54:21 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 20:35:55 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	print_end_message(t_dinner	*dinner)
 
 static void	destroy_mutexes(t_mutex *mutex, int total, int i)
 {
-	while(i++ <= total)
+	while (i++ <= total)
 		pthread_mutex_destroy(&mutex->fork[i]);
 	pthread_mutex_destroy(&mutex->text);
 	pthread_mutex_destroy(&mutex->death);

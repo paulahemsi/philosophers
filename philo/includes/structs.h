@@ -6,11 +6,14 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 08:27:09 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 19:53:36 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 20:32:41 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#ifndef STRUCTS_H
+# define STRUCTS_H
+
+# include "philo.h"
 
 typedef struct s_time
 {
@@ -46,3 +49,5 @@ typedef struct s_philo
 	int				hand[2];
 	t_dinner		*dinner;
 }	t_philo;
+
+#endif

@@ -6,27 +6,26 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:37:53 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 18:58:59 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 20:31:16 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-#include <stdbool.h>
-#include <pthread.h>
-#include <sys/time.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <limits.h>
-#include "colors.h"
-#include "structs.h"
-#include "error.h"
-#include "actions.h"
-#include "end.h"
-#include "time.h"
-
+# include <stdbool.h>
+# include <pthread.h>
+# include <sys/time.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+# include "colors.h"
+# include "structs.h"
+# include "error.h"
+# include "actions.h"
+# include "end.h"
+# include "time.h"
 
 bool	init_simulation(t_dinner *dinner);
 bool	start_simulation(t_dinner *dinner, t_philo *philo);

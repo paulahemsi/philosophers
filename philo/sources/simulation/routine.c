@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 20:41:00 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 14:19:36 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 20:35:39 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static bool	is_even(int philo)
 {
 	if (philo % 2 == 0)
-		return true;
-	return false;
+		return (true);
+	return (false);
 }
 
 void	*routine(void *philo_ptr)
@@ -29,7 +29,7 @@ void	*routine(void *philo_ptr)
 		delay(60);
 	pthread_create(&end_searcher, NULL, verify_end_conditions, philo);
 	pthread_detach(end_searcher);
-	while(eat(philo) && sleeping(philo) && think(philo))
+	while (eat(philo) && sleeping(philo) && think(philo))
 		continue ;
 	return (NULL);
 }
