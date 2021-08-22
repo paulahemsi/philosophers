@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 13:51:24 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 22:59:54 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 23:41:06 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,7 @@ void	do_action(long long int time_in_ms)
 	usleep(time_in_ms * 1000);
 }
 
-void	delay(int delay_time, t_philo *philo)
+void	delay(int delay_time)
 {
-	// long int	now;
-
-	// now = get_elapsed_time(philo->dinner->time.start);
-	// while ((get_elapsed_time(philo->dinner->time.start) - now) < (delay_time))
-		usleep(delay_time * 1000);
-		
-	philo++;
-	philo--;
+	usleep(delay_time * 1000);
 }
