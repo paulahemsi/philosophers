@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/03 22:26:24 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 18:58:22 by phemsi-a         ###   ########.fr       */
+/*   Created: 2021/08/22 18:57:56 by phemsi-a          #+#    #+#             */
+/*   Updated: 2021/08/22 18:58:27 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
-	char	cc;
-	char	*pointer_aux;
 
 	i = 0;
-	cc = (char)c;
-	pointer_aux = (char *)s;
-	while (i < n)
+	while ((s1[i]) && (s2[i]))
 	{
-		pointer_aux[i] = cc;
+		if (s1[i] != s2[i])
+			break ;
 		i++;
 	}
-	return ((void *)s);
+	return ((const unsigned char)s1[i] - (const unsigned char)s2[i]);
 }

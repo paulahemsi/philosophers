@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:37:53 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 20:41:18 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 18:58:59 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ void	parse_arguments(int argc, char **argv, t_dinner *dinner);
 int		ft_isdigit(int c);
 double	philo_atoi(const char *nptr);
 void	*ft_memset(void *s, int c, size_t n);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif
