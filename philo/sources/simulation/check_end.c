@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 18:34:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 11:58:29 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 14:18:33 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@ bool	full_stomach(t_philo *philo)
 {
 	if (philo->dinner->time.must_eat)
 		if (philo->eaten_times >= philo->dinner->time.must_eat)
-		{
-			//printf("eu, philo %d, deveria comer %d vezes, comi %d vezes e estou satisfeito\n", philo->index, philo->dinner->time.must_eat, philo->eaten_times);
 			return (true);
-		}
 	return (false);
 }
 
@@ -40,14 +37,10 @@ static bool	ended(t_philo *philo)
 	long long int	now;
 
 	if (anyone_dead(philo) ||  full_stomach(philo))
-	{
-		//printf("alguém morreu ou estou satisfeitão\n");
 		return (true);
-	}
 	now = get_elapsed_time(philo->dinner->time.start);
 	if (((now - philo->last_meal) > philo->dinner->time.to_die))
 	{
-		// printf("opaaa agora(%lld) caí aqui na trilha da morte. Ass: %d", now, philo->index);
 		pthread_mutex_lock(&philo->dinner->mutex.death);
 		philo->dinner->end = philo->index;
 		philo->dinner->time_of_death = now;
@@ -64,6 +57,5 @@ void	*verify_end_conditions(void *philo_ptr)
 	philo = (t_philo *)philo_ptr;
 	while (!ended(philo))
 		continue ;
-	// printf("thread de monitoramento do philo %d sendo encerrada\n", philo->index);
 	return (NULL);
 }

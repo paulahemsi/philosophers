@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 09:43:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 11:58:37 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 14:19:30 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,7 @@ bool	eat(t_philo *philo)
 	pthread_mutex_unlock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
 	philo->eaten_times++;
 	if (full_stomach(philo))
-	{
-		// printf("vou retornar falso e preciso sair da minha rotina pq estou cheião. Ass:%d\n", philo->index);
 		return (false);
-	}
 	return (true);
 }
 

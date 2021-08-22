@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 20:02:25 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 23:41:24 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 14:15:27 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@
 #define EAT			"is eating"
 #define SLEEP		"is sleeping"
 #define THINK		"is thinking"
-#define DIED		"died"
-#define END_1		"yey, all the philos eaten"
-#define END_2		"times :p nhamy!"
+#define DIED		"died\n\n(-(-_-(-_(-_(-_-)_-)-_-)_-)_-)-)\n\n"
+
 #define LEFT		0
 #define RIGHT		1
 
