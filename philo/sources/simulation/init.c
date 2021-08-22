@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:58:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 22:33:22 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 11:05:43 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	init_mutexes(t_mutex *mutex, int total, int i)
 	pthread_mutex_init(&mutex->eaten, NULL);
 }
 
-bool	only_one_philo(t_dinner *dinner)
+static bool	only_one_philo(t_dinner *dinner)
 {
 	if (dinner->total == 1)
 	{
@@ -55,7 +55,7 @@ bool	only_one_philo(t_dinner *dinner)
 
 bool	init_simulation(t_dinner *dinner)
 {
-	t_philo		philo[201];
+	t_philo		philo[202];
 
 	init_philosophers(philo, dinner, dinner->total, 0);
 	init_mutexes(&dinner->mutex, dinner->total, 0);

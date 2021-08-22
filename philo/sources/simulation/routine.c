@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 20:41:00 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 00:00:34 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 11:58:53 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void	*routine(void *philo_ptr)
 	pthread_detach(end_searcher);
 	while(eat(philo) && sleeping(philo) && think(philo))
 		continue ;
+	// printf("saíndo, meu povo! Ass: %d\n", philo->index);
 	return (NULL);
 }

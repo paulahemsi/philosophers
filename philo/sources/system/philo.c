@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:14:02 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 20:33:53 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 11:59:07 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	destroy_mutexes(t_mutex *mutex, int total, int i)
 
 static void	print_end_message(t_dinner	*dinner)
 {
+	// printf("time of death: %lld\n", dinner->time_of_death);
 	if (dinner->time_of_death)
 		print_death(dinner->time_of_death, dinner->end, &dinner->mutex.text);
 	else
@@ -46,6 +47,7 @@ int	main(int argc, char **argv)
 	parse_arguments(argc, argv, &dinner);
 	if (!init_simulation(&dinner))
 		return (EXIT_FAILURE);
+	// printf("ufa cheguei aqui\n");
 	print_end_message(&dinner);
 	destroy_mutexes(&dinner.mutex, dinner.total, 0);
 	return (0);
