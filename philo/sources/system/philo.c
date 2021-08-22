@@ -6,35 +6,36 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:14:02 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 14:18:02 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 19:54:21 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	print_death(long long time, int index, pthread_mutex_t *text)
+static void	print_death(long long time, int index)
 {
-	pthread_mutex_lock(text);
 	printf("%s%-10lld %-3d %-20s%s\n", H_RED, time, index, DIED, RESET);
-	pthread_mutex_unlock(text);
 }
 
-static void	destroy_mutexes(t_mutex *mutex, int total, int i)
+static void	print_full(int times_to_eat)
 {
-	while(i++ <= total)
-		pthread_mutex_init(&mutex->fork[i], NULL);
-	pthread_mutex_init(&mutex->text, NULL);
-	pthread_mutex_init(&mutex->death, NULL);
-	pthread_mutex_init(&mutex->end, NULL);
-	pthread_mutex_init(&mutex->eaten, NULL);
+	printf("%s%s %d %s%s\n", BOLD_H_YELLOW, END_1, times_to_eat, END_2, RESET);
 }
 
 static void	print_end_message(t_dinner	*dinner)
 {
 	if (dinner->time_of_death)
-		print_death(dinner->time_of_death, dinner->end, &dinner->mutex.text);
+		print_death(dinner->time_of_death, dinner->end);
 	else
-		printf("%s%s %d %s%s\n", BOLD_H_YELLOW, END_1, dinner->time.must_eat, END_2, RESET);
+		print_full(dinner->time.must_eat);
+}
+
+static void	destroy_mutexes(t_mutex *mutex, int total, int i)
+{
+	while(i++ <= total)
+		pthread_mutex_destroy(&mutex->fork[i]);
+	pthread_mutex_destroy(&mutex->text);
+	pthread_mutex_destroy(&mutex->death);
 }
 
 int	main(int argc, char **argv)

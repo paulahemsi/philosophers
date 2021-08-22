@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 13:51:24 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 18:29:06 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 19:16:34 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,4 @@ void	do_action(long long int time_in_ms)
 void	delay(int delay_time)
 {
 	usleep(delay_time * 1000);
-}
-
-long long int	start(t_philo *philo)
-{
-	return (philo->dinner->time.start);
 }
