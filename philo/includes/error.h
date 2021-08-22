@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 17:29:05 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 20:31:16 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 18:16:00 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 # define ARGS_MAX	6
 
 # define USAGE			"Usage: ./philo n_philo ms_to_die ms_to_eat ms_to_sleep"
-# define NOT_UNINT		"Args must be unsigned integers > 0"
-# define THREAD_ERROR	"Error creating threads"
+# define NOT_UNINT		"Args must be unsigned integers greater than 0"
+# define THREAD_C_ERROR	"Error creating threads"
+# define THREAD_J_ERROR	"Error joining threads"
 
 bool	check_errors(int argc, char **argv);
 bool	error_msg(char *message);

@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 20:02:25 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 14:15:27 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 18:48:30 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 bool	eat(t_philo *philo);
 bool	sleeping(t_philo *philo);
 bool	think(t_philo *philo);
-bool	print_status(long long time, t_philo *philo, char *status, char *color);
+bool	print_status(t_philo *philo, char *status, char *color);
 /*
 ** time.c
 */
@@ -35,5 +35,6 @@ long long int	get_current_time(void);
 long long int	get_elapsed_time(long long int start_time);
 void			do_action(long long int time_in_ms);
 void			delay(int delay_time);
+long long int	start(t_philo *philo);
 
 #endif
