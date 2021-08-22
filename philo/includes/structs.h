@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 08:27:09 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 20:06:57 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 11:05:51 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 typedef struct s_time
 {
+	long long int	start;
 	int				to_eat;
 	int				to_sleep;
 	int				to_die;
-	int				has_eaten;
-	long long int	start;
+	int				must_eat;
 }	t_time;
 
 typedef struct s_mutex
@@ -26,26 +26,25 @@ typedef struct s_mutex
 	pthread_mutex_t	text;
 	pthread_mutex_t	end;
 	pthread_mutex_t	eaten;
+	pthread_mutex_t	death;
+	pthread_mutex_t	fork[202];
 }	t_mutex;
+
+typedef struct s_dinner
+{
+	int				total;
+	int				end;
+	int				satisfied_philos;
+	long long int	time_of_death;
+	t_mutex			mutex;
+	t_time			time;
+}	t_dinner;
 
 typedef struct s_philo
 {
 	int				index;
 	long long int	last_meal;
-	t_time			time[1];
+	int				eaten_times;
 	int				hand[2];
-	bool			*death;
-	pthread_mutex_t	*forks;
-	t_mutex			*mutex;
+	t_dinner		*dinner;
 }	t_philo;
-
-typedef struct s_dinner
-{
-	int				total;
-	int				must_eat;
-	bool			death;
-	t_mutex			mutex;
-	t_time			time[1];
-	t_philo			philo[200];
-	pthread_mutex_t	fork[200];
-}	t_dinner;

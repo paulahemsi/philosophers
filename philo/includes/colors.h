@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 19:50:41 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 19:36:01 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/18 17:51:17 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,6 @@
 /*
 ** RESET
 */
-#define RESET_COLOR		"\e[0m"
+#define RESET			"\e[0m"
 
 #endif

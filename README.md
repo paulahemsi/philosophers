@@ -53,3 +53,5 @@ name  | prototype | description |
   * 11/08: Error handler and arguments parser
   * 12/08, 13/08, 14/08: Getting confused while implementing the threads flow
   * 15/08: Finished threads implementation and, as was sunday, played a little bit adding output colors :)
+  * 16 - 21/08: Fighting the code and lazy to write (shame on me)
+  * 22/08: A lot of refact and check end thread added

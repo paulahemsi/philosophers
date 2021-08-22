@@ -6,39 +6,62 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:58:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/15 20:36:08 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/22 11:05:43 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+static void	define_forks(t_philo *philo, int index, int last_philo)
+{
+	philo[index].hand[LEFT] = index;
+	philo[index].hand[RIGHT] = index + 1;
+	if (index == last_philo)
+		philo[index].hand[RIGHT] = 1;
+}
+
 static void	init_philosophers(t_philo *philo, t_dinner *dinner, int total, int i)
 {
 	while (++i <= total)
 	{
+		ft_memset(&philo[i], 0, sizeof(t_philo));
 		philo[i].index = i;
-		philo[i].time[0] = *dinner->time;
-		philo[i].hand[0] = i;
-		philo[i].hand[1] = i + 1;
-		if (i == total)
-			philo[i].hand[1] = 1;
-		philo[i].forks = dinner->fork;
-		philo[i].death = &dinner->death;
-		philo[i].mutex = &dinner->mutex;
+		define_forks(philo, i, total);
+		philo[i].dinner = dinner;
 	}
 }
 
-static void	init_mutexes(t_dinner *dinner, t_mutex *mutex, int total, int i)
+static void	init_mutexes(t_mutex *mutex, int total, int i)
 {
 	while(i++ <= total)
-		pthread_mutex_init(&dinner->fork[i], NULL);
+		pthread_mutex_init(&mutex->fork[i], NULL);
 	pthread_mutex_init(&mutex->text, NULL);
+	pthread_mutex_init(&mutex->death, NULL);
+	pthread_mutex_init(&mutex->end, NULL);
+	pthread_mutex_init(&mutex->eaten, NULL);
 }
 
-void	init_simulation(t_dinner *dinner)
+static bool	only_one_philo(t_dinner *dinner)
 {
-	init_mutexes(dinner, &dinner->mutex, dinner->total, 0);
-	dinner->time->start = get_current_time();
-	init_philosophers(dinner->philo, dinner, dinner->total, 0);
-	start_simulation(dinner, 0);
+	if (dinner->total == 1)
+	{
+		printf("%s%-10d %-3d %-20s%s\n", D_GREEN, 0, 1, FORK, RESET);
+		dinner->time_of_death = dinner->time.to_die + 1;
+		dinner->end = 1;
+		return (true);
+	}
+	return (false);
+}
+
+bool	init_simulation(t_dinner *dinner)
+{
+	t_philo		philo[202];
+
+	init_philosophers(philo, dinner, dinner->total, 0);
+	init_mutexes(&dinner->mutex, dinner->total, 0);
+	if (only_one_philo(dinner))
+		return (true);
+	if (!start_simulation(dinner, philo))
+		return (false);
+	return (true);
 }
