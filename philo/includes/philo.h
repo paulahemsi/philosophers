@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:37:53 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 20:09:50 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:41:18 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@
 #include "time.h"
 
 
-bool	init_simulation_fail(t_dinner *dinner);
-bool	start_simulation_failed(t_dinner *dinner, t_philo *philo, int i);
+bool	init_simulation(t_dinner *dinner);
+bool	start_simulation(t_dinner *dinner, t_philo *philo);
+void	*routine(void *philo_ptr);
 /*
 ** parser.c
 */

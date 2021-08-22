@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:58:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 19:48:40 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:33:34 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ static void	init_mutexes(t_mutex *mutex, int total, int i)
 	pthread_mutex_init(&mutex->eaten, NULL);
 }
 
-bool	init_simulation_fail(t_dinner *dinner)
+bool	init_simulation(t_dinner *dinner)
 {
 	t_philo		philo[201];
 
 	init_philosophers(philo, dinner, dinner->total, 0);
 	init_mutexes(&dinner->mutex, dinner->total, 0);
-	if (start_simulation_failed(dinner, philo, 0))
-		return (true);
-	return (false);
+	if (!start_simulation(dinner, philo))
+		return (false);
+	return (true);
 }

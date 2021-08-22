@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 17:41:37 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/11 21:01:56 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:30:21 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ static bool	only_unsigned_integers(int argc, char **argv, int i)
 	return (true);
 }
 
-bool	error(int argc, char **argv)
+bool	check_errors(int argc, char **argv)
 {
 	if (argc < ARGS_MIN || argc > ARGS_MAX)
 		return (error_msg(USAGE));
 	if (!only_unsigned_integers(argc, argv, 0))
 		return (error_msg(NOT_UNINT));
-	return (false);
+	return (true);
 }

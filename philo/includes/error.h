@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 17:29:05 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 12:34:45 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:31:16 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define NOT_UNINT		"Args must be unsigned integers > 0"
 # define THREAD_ERROR	"Error creating threads"
 
-bool	error(int argc, char **argv);
+bool	check_errors(int argc, char **argv);
 bool	error_msg(char *message);
 
 #endif

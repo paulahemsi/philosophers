@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:14:02 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 19:52:47 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:33:53 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ int	main(int argc, char **argv)
 {
 	t_dinner	dinner;
 
-	if (error(argc, argv))
+	if (!check_errors(argc, argv))
 		return (EXIT_FAILURE);
 	parse_arguments(argc, argv, &dinner);
-	if (init_simulation_fail(&dinner))
+	if (!init_simulation(&dinner))
 		return (EXIT_FAILURE);
 	print_end_message(&dinner);
 	destroy_mutexes(&dinner.mutex, dinner.total, 0);
