@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 09:43:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 21:25:11 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/21 22:57:40 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	sleeping(t_philo *philo)
 	start = philo->dinner->time.start;
 	if (!print_status(get_elapsed_time(start), philo, SLEEP, GREEN))
 		return (false);
-	do_action(philo->dinner->time.to_sleep, philo);
+	do_action(philo->dinner->time.to_sleep);
 	return (true);
 }
 
@@ -56,7 +56,7 @@ bool	eat(t_philo *philo)
 	philo->last_meal = get_elapsed_time(start);
 	if (!print_status(get_elapsed_time(start), philo, EAT, V_GREEN))
 		return (false);
-	do_action(philo->dinner->time.to_eat, philo);
+	do_action(philo->dinner->time.to_eat);
 	philo->eaten_times++;
 	pthread_mutex_unlock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
 	pthread_mutex_unlock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
