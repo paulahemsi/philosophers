@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 09:43:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 18:51:10 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/23 20:07:13 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,20 @@ bool	sleeping(t_philo *philo)
 
 static void	take_forks(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
-	print_status(philo, FORK, D_GREEN);
-	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
-	print_status(philo, FORK, D_GREEN);
+	if (philo->index % 2 == 0)
+	{
+		pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
+		print_status(philo, FORK, D_GREEN);
+		pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
+		print_status(philo, FORK, D_GREEN);
+	}
+	else
+	{
+		pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
+		print_status(philo, FORK, D_GREEN);
+		pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
+		print_status(philo, FORK, D_GREEN);
+	}
 }
 
 static void	drop_forks(t_philo *philo)
