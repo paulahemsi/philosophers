@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 08:37:53 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 20:31:16 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/23 21:30:32 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 bool	init_simulation(t_dinner *dinner);
 bool	start_simulation(t_dinner *dinner, t_philo *philo);
 void	*routine(void *philo_ptr);
+bool	is_even(int philo);
 /*
 ** parser.c
 */
