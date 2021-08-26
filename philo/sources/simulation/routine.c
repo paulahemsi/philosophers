@@ -12,7 +12,7 @@
 
 #include "philo.h"
 
-static bool	is_even(int philo)
+bool	is_even(int philo)
 {
 	if (philo % 2 == 0)
 		return (true);
@@ -26,7 +26,7 @@ void	*routine(void *philo_ptr)
 
 	philo = (t_philo *)philo_ptr;
 	if (is_even(philo->index))
-		delay(60);
+		delay(1);
 	pthread_create(&end_searcher, NULL, verify_end_conditions, philo);
 	pthread_detach(end_searcher);
 	while (eat(philo) && sleeping(philo) && think(philo))

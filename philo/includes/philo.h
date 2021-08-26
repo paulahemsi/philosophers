@@ -30,6 +30,7 @@
 bool	init_simulation(t_dinner *dinner);
 bool	start_simulation(t_dinner *dinner, t_philo *philo);
 void	*routine(void *philo_ptr);
+bool	is_even(int philo);
 /*
 ** parser.c
 */

@@ -22,9 +22,15 @@ bool	sleeping(t_philo *philo)
 
 static void	take_forks(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
+	if (is_even(philo->index))
+		pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
+	else
+		pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
 	print_status(philo, FORK, D_GREEN);
-	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
+	if (is_even(philo->index))
+		pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
+	else
+		pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
 	print_status(philo, FORK, D_GREEN);
 }
 
