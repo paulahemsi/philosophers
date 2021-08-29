@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 18:34:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 20:09:06 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/29 14:22:35 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ bool	anyone_dead(t_philo *philo)
 
 static bool	define_death(t_philo *philo, long long int now)
 {
-	pthread_mutex_lock(&philo->dinner->mutex.death);
+	pthread_mutex_lock(&philo->eating);
 	philo->dinner->end = philo->index;
 	philo->dinner->time_of_death = now;
-	pthread_mutex_unlock(&philo->dinner->mutex.death);
+	pthread_mutex_unlock(&philo->eating);
 	return (true);
 }
 

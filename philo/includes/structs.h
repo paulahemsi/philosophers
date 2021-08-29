@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 08:27:09 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 20:32:41 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/29 14:20:37 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ typedef struct s_philo
 {
 	int				index;
 	long long int	last_meal;
+	long long int	time_to_death;
 	int				eaten_times;
 	int				hand[2];
+	pthread_mutex_t	eating;
 	t_dinner		*dinner;
 }	t_philo;
 

@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 21:58:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 20:35:05 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/29 14:23:55 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	init_mutexes(t_mutex *mutex, int total, int i)
 	while (i++ <= total)
 		pthread_mutex_init(&mutex->fork[i], NULL);
 	pthread_mutex_init(&mutex->text, NULL);
-	pthread_mutex_init(&mutex->death, NULL);
+	//pthread_mutex_init(&mutex->death, NULL);
 }
 
 static bool	only_one_philo(t_dinner *dinner)
