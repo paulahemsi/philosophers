@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 09:43:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 18:51:10 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/29 13:04:54 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ bool	sleeping(t_philo *philo)
 {
 	if (!print_status(philo, SLEEP, GREEN))
 		return (false);
-	do_action(philo->dinner->time.to_sleep);
+	usleep(philo->dinner->time.to_sleep * 1000);
+	//do_action(get_elapsed_time(philo->dinner->time.start), philo->dinner->time.to_sleep, philo->dinner->time.start);
 	return (true);
 }
 
@@ -40,7 +41,8 @@ bool	eat(t_philo *philo)
 	take_forks(philo);
 	if (!print_status(philo, EAT, V_GREEN))
 		return (false);
-	do_action(philo->dinner->time.to_eat);
+	usleep(philo->dinner->time.to_eat * 1000);
+	//do_action(get_elapsed_time(philo->dinner->time.start), philo->dinner->time.to_eat, philo->dinner->time.start);
 	drop_forks(philo);
 	if (full_stomach(philo))
 		return (false);
