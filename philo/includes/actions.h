@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 20:02:25 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/29 13:01:23 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/29 15:01:50 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 bool			eat(t_philo *philo);
 bool			sleeping(t_philo *philo);
 bool			think(t_philo *philo);
-bool			print_status(t_philo *philo, char *status, char *color);
+int				print_status(t_philo *philo, char *status, char *color);
 /*
 ** time.c
 */

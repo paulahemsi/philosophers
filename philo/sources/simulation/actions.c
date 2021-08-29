@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 09:43:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/29 14:46:58 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/29 15:02:31 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	drop_forks(t_philo *philo)
 bool	eat(t_philo *philo)
 {
 	take_forks(philo);
-	if (!print_status(philo, EAT, V_GREEN))
+	if (!(philo->last_meal = print_status(philo, EAT, V_GREEN)))
 		return (false);
 	usleep(philo->dinner->time.to_eat * 1000);
 	//do_action(get_elapsed_time(philo->dinner->time.start), philo->dinner->time.to_eat, philo->dinner->time.start);
