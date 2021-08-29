@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 09:43:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/27 20:40:36 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/29 08:48:42 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	take_forks(t_philo *philo)
 	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
 	print_status(philo, FORK, D_GREEN);
 	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
+	pthread_mutex_lock(&philo->dinner->mutex.eat);
 	print_status(philo, FORK, D_GREEN);
 	
 }
@@ -51,6 +52,7 @@ bool	eat(t_philo *philo)
 		return (false);
 	do_action(get_elapsed_time(philo->dinner->time.start), philo->dinner->time.to_eat, philo->dinner->time.start);
 	drop_forks(philo);
+	pthread_mutex_unlock(&philo->dinner->mutex.eat);
 	if (full_stomach(philo))
 		return (false);
 	return (true);

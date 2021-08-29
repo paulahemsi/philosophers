@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 08:27:09 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 20:32:41 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/29 08:41:54 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_mutex
 {
 	pthread_mutex_t	text;
 	pthread_mutex_t	death;
+	pthread_mutex_t	eat;
 	pthread_mutex_t	fork[202];
 }	t_mutex;
 

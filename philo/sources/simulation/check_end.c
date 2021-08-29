@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 18:34:07 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/29 08:33:09 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/29 08:44:06 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,10 @@ static bool	ended(t_philo *philo)
 
 	if (anyone_dead(philo) || full_stomach(philo))
 		return (true);
+	pthread_mutex_lock(&philo->dinner->mutex.eat);
 	now = get_elapsed_time(philo->dinner->time.start);
 	//now = now - (now % 10);
+	pthread_mutex_unlock(&philo->dinner->mutex.eat);
 	if (((now - philo->last_meal) > philo->dinner->time.to_die))
 		return (define_death(philo, now));
 	return (false);
