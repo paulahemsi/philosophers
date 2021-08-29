@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 18:35:56 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/29 15:01:31 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/29 15:13:38 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	print(t_philo *philo, char *status, char *color)
 int	print_status(t_philo *philo, char *status, char *color)
 {
 	if (anyone_dead(philo))
-		return (false);
+		return (0);
 	//print(philo, status, color);
 	return (print(philo, status, color));//true);
 }
