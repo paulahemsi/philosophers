@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 18:35:56 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 19:05:22 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/28 00:07:57 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,12 @@ static void	print(t_philo *philo, char *status, char *color)
 	long long int	now;
 
 	now = get_elapsed_time(philo->dinner->time.start);
-	printf("%s%-10lld ", color, now);
-	printf("%-3d %-20s%s\n", philo->index, status, RESET);
+	now = now - (now % 10);
+	printf("%lld ", now);
+	printf("%d %s\n", philo->index, status);
+	color++;color--;
+	// printf("%s%-10lld ", color, now);
+	// printf("%-3d %-20s%s\n", philo->index, status, RESET);
 	update_last_meal(philo, now, status);
 }
 

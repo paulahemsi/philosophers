@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 20:41:00 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 20:35:39 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/27 21:08:22 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*routine(void *philo_ptr)
 
 	philo = (t_philo *)philo_ptr;
 	if (is_even(philo->index))
-		delay(60);
+		delay(1);
 	pthread_create(&end_searcher, NULL, verify_end_conditions, philo);
 	pthread_detach(end_searcher);
 	while (eat(philo) && sleeping(philo) && think(philo))

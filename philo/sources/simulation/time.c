@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 13:51:24 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 20:34:07 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/28 00:04:48 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ long long int	get_elapsed_time(long long int start_time)
 	return ((get_current_time() - start_time));
 }
 
-void	do_action(long long int time_in_ms)
+void	do_action(long long int	start_action, long long int action_duration, long long int start)
 {
-	usleep(time_in_ms * 1000);
+	while ((get_elapsed_time(start) - start_action) < action_duration)
+		continue;
+	// usleep(time_in_ms * 1000);
 }
 
 void	delay(int delay_time)
