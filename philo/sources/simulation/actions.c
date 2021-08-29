@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 09:43:48 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/29 13:04:54 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/08/29 14:46:58 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,17 @@ bool	sleeping(t_philo *philo)
 
 static void	take_forks(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
-	print_status(philo, FORK, D_GREEN);
+	if (philo->index % 2 == 0)
+	{
+		pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
+		print_status(philo, FORK, D_GREEN);
+		pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
+		print_status(philo, FORK, D_GREEN);
+		return ;
+	}
 	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[RIGHT]]);
+	print_status(philo, FORK, D_GREEN);
+	pthread_mutex_lock(&philo->dinner->mutex.fork[philo->hand[LEFT]]);
 	print_status(philo, FORK, D_GREEN);
 }
 
