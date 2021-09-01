@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 17:29:05 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/22 20:30:58 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/01 19:22:26 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define NOT_UNINT		"Args must be unsigned integers greater than 0"
 # define THREAD_C_ERROR	"Error creating threads"
 # define THREAD_J_ERROR	"Error joining threads"
+# define PHILO_MAX		"Maximum number of philos: 200"
 
 bool	check_errors(int argc, char **argv);
 bool	error_msg(char *message);

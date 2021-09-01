@@ -6,7 +6,7 @@
 /*   By: phemsi-a <phemsi-a@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 17:41:37 by phemsi-a          #+#    #+#             */
-/*   Updated: 2021/08/21 20:30:21 by phemsi-a         ###   ########.fr       */
+/*   Updated: 2021/09/01 19:23:12 by phemsi-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ bool	check_errors(int argc, char **argv)
 		return (error_msg(USAGE));
 	if (!only_unsigned_integers(argc, argv, 0))
 		return (error_msg(NOT_UNINT));
+	if (philo_atoi(argv[1]) > 200)
+		return (error_msg(PHILO_MAX));
 	return (true);
 }
