@@ -7,9 +7,7 @@ I’ve never thought philosophy would be so deadly | école 42
 * [Usage](#usage)
 * [Philos_and_forks_map](#philos_and_forks_map)
 * [New Functions Allowed](#new_functions_allowed)
-* [Step by step](#step_by_step)
 * [Study resources](#study_resources)
-* [Work Diary](#work_diary)
 
 ## introduction
 
@@ -18,6 +16,19 @@ ______________
 *Several philosophers are sitting at a round table doing one of three things: eating, thinking, or sleeping. While eating, they are not thinking or sleeping, while sleeping, they are not eating or thinking and of course, while thinking, they are not eating or sleeping. The philosophers sit at a circular table with a large bowl of spaghetti in the center. There are some forks on the table,  it is assumed that a philosopher must eat with two forks, one for each hand. The philosophers must never be starving and every philosofer needs to eat. Philosophers don’t speak with each other and don’t know when another philosopher is about to die. Each time a philosopher has finished eating, he will drop his forks and start sleeping. When a philosopher is done sleeping, he will start thinking. The simulation stops when a philosopher dies.*
 ______________
 ## usage
+
+```sh
+git clone git@github.com:paulahemsi/philosophers.git
+
+cd philosophers/philo
+
+make
+
+./philo number_of_philos time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
+```
+
+![philo gif](https://user-images.githubusercontent.com/63563271/132126142-5e335d4a-729d-4992-9d05-ad1cab80374a.gif)
+
 
 
 ## philos_and_forks_map
@@ -38,20 +49,14 @@ name  | prototype | description |
 [**pthread_mutex_lock**](https://pubs.opengroup.org/onlinepubs/7908799/xsh/pthread_mutex_lock.html) | int pthread_mutex_lock(pthread_mutex_t * mutex); | locks the object referenced by mutex. If the mutex is already locked, the calling thread blocks until the mutex becomes available. This operation returns with the mutex object referenced by mutex in the locked state with the calling thread as its owner			|
 [**pthread_mutex_unlock**](https://pubs.opengroup.org/onlinepubs/7908799/xsh/pthread_mutex_lock.html) | int pthread_mutex_unlock(pthread_mutex_t * mutex); |releases the mutex object referenced by mutex.	|
 
-## step_by_step
-
 ## study_resources
 
-* [Unix Threads in C -playlist](https://www.youtube.com/watch?v=d9s_d28yJq0&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2)
-
-## work_diary
-
-<details>
-  <summary>Click to expand </summary>
-  
-  * 08/08, 09/08, 10/08: Thread studies
-  * 11/08: Error handler and arguments parser
-  * 12/08, 13/08, 14/08: Getting confused while implementing the threads flow
-  * 15/08: Finished threads implementation and, as was sunday, played a little bit adding output colors :)
-  * 16 - 21/08: Fighting the code and lazy to write (shame on me)
-  * 22/08: A lot of refact and check end thread added
+* [Unix Threads in C -playlist](https://www.youtube.com/watch?v=d9s_d28yJq0&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2) by CodeVault
+* [Multi Threaded Programming Video](https://www.youtube.com/watch?v=OgnLaXwLC8Y) by Arif Butt
+* [Synchronization among Threads Video](https://www.youtube.com/watch?v=SvFr7rPWI3g&list=PL7B2bn3G_wfC-mRpG7cxJMnGWdPAQTViW&index=47) by Arif Butt
+* [Multithreaded Programming](https://randu.org/tutorials/threads/)
+* [Threads questions and answers](https://www.notion.so/Philosophers-2b872948598e4f0cba91c66d8b5ba821) by [Joyce Macksuele](https://github.com/joycemacksuele)
+* [Delay_ometer](https://github.com/nesvoboda/socrates) by [Arseniy Shishaev](https://github.com/nesvoboda)
+* [Philosooher Visualizer](https://nafuka11.github.io/philosophers-visualizer/) by [Nafuka](https://github.com/nafuka11)
+* [Notion with study materials](https://grizzly-muenster-737.notion.site/Philosophers-55c385e0a6224d629c86231821e3ce10) by [Laís Arena](https://github.com/laisarena)
+* [ASCIImoji](http://asciimoji.com/)
